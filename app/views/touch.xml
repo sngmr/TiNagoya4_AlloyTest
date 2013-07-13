@@ -1,0 +1,7 @@
+<Alloy>
+	<View id="container">
+		<View id="touchArea">
+			<Label id="number" />
+		</View>
+	</View>
+</Alloy>

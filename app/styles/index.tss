@@ -1,0 +1,9 @@
+"#container": {
+	backgroundColor: "#000"
+},
+"#touchArea": {
+	backgroundColor: "#333",
+	width: 300,
+	height: 300,
+	layout: 'horizontal'
+},
