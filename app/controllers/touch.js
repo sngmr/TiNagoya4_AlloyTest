@@ -5,7 +5,7 @@ $.number.text = args.number;
 
 // タッチハンドラ
 $.touchArea.addEventListener('click', function(e) {
-	$.trigger('touch', {number: args.number});
+	$.trigger('touch', {source: $, number: args.number});
 });
 
 // [PUBLIC]正解だから色を消す

@@ -1,25 +1,16 @@
 // インスタンス変数
-var _numberObjects = {};
+var _numberList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 var _nextNumber = 1;
 
-// 乱数で数字を作る
-// 結果はオブジェクトにControllerと共に入れる
-var count = 0;
-var min = 1;
-var max = 25
-while (count < 25) {
-	var numberCandidate = Math.floor(Math.random() * (max - min + 1)) + min;
-	if (!_.has(_numberObjects, numberCandidate)) {
-		_numberObjects[numberCandidate] = Alloy.createController('touch', {number: numberCandidate});
-		count += 1;
-	}
-}
+// シャッフルする
+_numberList = _.shuffle(_numberList);
 
 // 数字パネルを並べる
-for (var number in _numberObjects) {
-	_numberObjects[number].on('touch', touchHandler);
-	$.touchArea.add(_numberObjects[number].getView());
-}
+for (var i = 0; i < _numberList.length; i++) {
+	var ctl = Alloy.createController('touch', {number: _numberList[i]});
+	ctl.on('touch', touchHandler);
+	$.touchArea.add(ctl.getView());
+};
 
 // Windowを開く
 $.window.open();
@@ -28,10 +19,9 @@ $.window.open();
 function touchHandler(e) {
 	if (e.number == _nextNumber) {
 		// 正解
-		_numberObjects[e.number].correct();
+		e.source.correct();
 		_nextNumber += 1;
 	} else {
 		// 不正解
-		
 	}
 }
