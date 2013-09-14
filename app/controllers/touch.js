@@ -12,4 +12,4 @@ $.touchArea.addEventListener('click', function(e) {
 exports.correct = function() {
 	$.touchArea.backgroundColor = '#132A15';
 	$.number.color = '#888';
-}
+};
